@@ -5,7 +5,6 @@ from flask import Flask, render_template, request, session, redirect, url_for
 app = Flask(__name__)
 app.secret_key = os.getenv("OPENAI_API_KEY")
 
-
 @app.route("/clear_history", methods=["POST"])
 def clear_history():
     session.pop("history", None)
@@ -58,5 +57,4 @@ Assistant: Great! Let's continue from there.
 """
 
 if __name__ == "__main__":
-    app.run(debug=True)
-
+    app.run(debug=False)
