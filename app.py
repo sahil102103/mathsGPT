@@ -3,7 +3,8 @@ import openai
 from flask import Flask, render_template, request, session, redirect, url_for
 
 app = Flask(__name__)
-openai.api_key = os.getenv("OPENAI_API_KEY")
+app.secret_key = os.getenv("OPENAI_API_KEY")
+
 
 @app.route("/clear_history", methods=["POST"])
 def clear_history():
@@ -17,7 +18,7 @@ def request_help():
     response = openai.Completion.create(
         model="text-davinci-003",
         prompt=generate_prompt(math_problem),
-        temperature=0.6,
+        temperature=0.9,
     )
     result = response.choices[0].text.split("\n")
     # Add to session history
