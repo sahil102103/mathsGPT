@@ -1,21 +1,42 @@
+
 <!DOCTYPE html>
+<html>
 <head>
-  <title>OpenAI Quickstart</title>
-  <link
-    rel="shortcut icon"
-    href="{{ url_for('static', filename='dog.png') }}"
-  />
+  <title>Math Problem Solver</title>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='dog.png') }}" />
   <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
 </head>
-
 <body>
-  <img src="{{ url_for('static', filename='dog.png') }}" class="icon" />
-  <h3>Name my pet</h3>
+  <h3>MathGPT</h3>
   <form action="/" method="post">
-    <input type="text" name="animal" placeholder="Enter an animal" required />
-    <input type="submit" value="Generate names" />
+    <input type="text" name="math_problem" placeholder="Enter a math problem" required />
+    <input type="submit" value="Solve" />
   </form>
   {% if result %}
-  <div class="result">{{ result }}</div>
+  <div class="result">
+    {% for line in result %}
+      <p>{{ line }}</p>
+    {% endfor %}
+  </div>
+  {% endif %}
+  {% if request_more_help %}
+  <form action="/request_help" method="post">
+    <input type="submit" value="Request More Help">
+  </form>
+  {% endif %}
+  {% if current_history %}
+  <div class="history">
+    <h4>Chat history:</h4>
+    {% for message, responses in current_history %}
+      <div class="conversation">
+        <p><strong>You:</strong> {{ message }}</p>
+        {% for response in responses %}
+          <p><strong>AI:</strong> {{ response }}</p>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
   {% endif %}
 </body>
+</html>
+
