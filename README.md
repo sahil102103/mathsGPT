@@ -1,44 +1,54 @@
-# OpenAI API Quickstart - Python example app
-
-This is an example pet name generator app used in the OpenAI API [quickstart tutorial](https://beta.openai.com/docs/quickstart). It uses the [Flask](https://flask.palletsprojects.com/en/2.0.x/) web framework. Check out the tutorial or follow the instructions below to get set up.
+# MathsGPT Quickstart
+This repository contains an example pet name generator app used in the OpenAI API quickstart tutorial. The app utilizes the Flask web framework.
 
 ## Setup
+Follow the steps below to set up and run the MathsGPT app:
 
-1. If you don’t have Python installed, [install it from here](https://www.python.org/downloads/).
-
-2. Clone this repository.
+## Prerequisites
+1. Python (if not already installed) Installation
+2. Clone this repository to your local machine.
 
 3. Navigate into the project directory:
 
-   ```bash
-   $ cd openai-quickstart-python
-   ```
+ ```bash
+$ cd mathsGPT
+ ```
+Create a new virtual environment:
 
-4. Create a new virtual environment:
+ ```bash
+$ python -m venv venv
+$ . venv/bin/activate
+ ```
+Install the required dependencies:
 
-   ```bash
-   $ python -m venv venv
-   $ . venv/bin/activate
-   ```
+ ```bash
+$ pip install -r requirements.txt
+ ```
+ 
+## Configuration
+Make a copy of the example environment variables file:
 
-5. Install the requirements:
+ ```bash
+$ cp .env.example .env
+ ```
+Add your OpenAI API key to the newly created .env file.
 
-   ```bash
-   $ pip install -r requirements.txt
-   ```
+Run the App
+To start the app, execute the following command:
 
-6. Make a copy of the example environment variables file:
+ ```bash
+$ flask run
+ ```
+The app should now be accessible at http://localhost:5000 in your web browser.
 
-   ```bash
-   $ cp .env.example .env
-   ```
+Note: Ensure that the virtual environment is activated before running the app.
 
-7. Add your [API key](https://beta.openai.com/account/api-keys) to the newly created `.env` file.
+## Usage
+Once the app is running, you can use it to ask for homework help by entering a problem within the textbox.
 
-8. Run the app:
+## License
+This project is licensed under the MIT License. Feel free to modify and use it as per your requirements.
 
-   ```bash
-   $ flask run
-   ```
+Please refer to the OpenAI API documentation for more details on how to integrate the OpenAI API into your projects.
 
-You should now be able to access the app at [http://localhost:5000](http://localhost:5000)! For the full context behind this example app, check out the [tutorial](https://beta.openai.com/docs/quickstart).
+If you encounter any issues or have any questions, please submit an issue on this repository.
