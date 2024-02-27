@@ -1,5 +1,5 @@
 # MathsGPT Quickstart
-This repository contains an example pet name generator app used in the OpenAI API quickstart tutorial. The app utilizes the Flask web framework.
+This repository contains an example math tutor used in the OpenAI API quickstart tutorial. The app utilizes the Flask web framework.
 
 ## Setup
 Follow the steps below to set up and run the MathsGPT app:
